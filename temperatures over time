@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Read the data into a DataFrame using pandas.read_csv()
+df = pd.read_csv("data.csv",  # Replace "data.csv" with the path to your data file
+                 names=["age_AD", "tempanom-ann"],  # Specify the column names
+                 skiprows=1)  # Skip the first row (assuming the first row contains the column names)
+
+# Create the plot
+plt.plot(df["age_AD"], df["tempanom-ann"], color="red", linewidth=2)
+
+# Add a title and axis labels
+plt.title("Temperature over time", fontsize=16)
+plt.xlabel("Year", fontsize=14)
+plt.ylabel("Temperature (ºC)", fontsize=14)
+
+# Set the axis limits
+plt.xlim(1879, 2020)
+plt.ylim(-0.6, 0.6)
+
+# Add gridlines
+plt.grid(True, linestyle=":")
+
+# Add a legend
+plt.legend(["Temperature"], fontsize=14, loc="upper left")
+
+# Show the plot
+plt.show()
